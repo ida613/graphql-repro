@@ -4,8 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node --require dd-trace/init ./index.js"
+    "test": "curl  -H 'Content-Type: application/json' -X POST -d '{\"query\": \"query GetBooks { books { title author } }\"}' http://localhost:4000",
+    "start": "DD_TRACE_DEBUG=true node --require dd-trace/init ./index.js",
+    "start-users": "DD_TRACE_DEBUG=true node --require dd-trace/init ./users.js",
+    "start-books": "DD_TRACE_DEBUG=true node --require dd-trace/init ./books.js"
   },
   "keywords": [],
   "author": "",
