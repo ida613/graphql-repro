@@ -30,6 +30,9 @@ const resolvers = {
 };
 
 const server = new ApolloServer({
+  context: async ({ req }) => {
+    console.log('HEADERS', req.headers);
+  },
   schema: buildSubgraphSchema({ typeDefs, resolvers })
 });
 
